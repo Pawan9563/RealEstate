@@ -1,13 +1,7 @@
-import {userId} from "../controllers/authController"
 import jwt from "jsonwebtoken"
-const genToken = async(userId)=>{
-    try{
-        let token = await jwt.sign({userId},process.env.JWT_SECRET,{expiresIn:"7d"})
-        return token;
-    }
-    catch(error){
-        console.log(error);
-    }
+
+const genToken = (userId) => {
+    return jwt.sign({userId}, process.env.JWT_SECRET, {expiresIn: "7d"})
 }
 
 export default genToken
